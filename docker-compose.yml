@@ -1,0 +1,70 @@
+version: '3.9'
+
+services:
+  mongo-server-db:
+    image: mongo:4.4.13
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_DB_USERNAME: root
+      MONGO_DB_PASSWORD: example
+    volumes:
+      - mongodbdatavolumeprod:/data/db
+      - mongodblogvolumeprod:/var/log/mongodb
+    networks:
+      server_network:
+  
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+       - "8082:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo-server-db:27017/
+    networks:
+      server_network:
+
+  server:
+    build: server
+    image: v-file/server:latest
+    ports:
+       - "8080:8080"
+
+    restart: always
+    environment:
+      spring.application.name: server
+      spring.data.mongodb.host: mongo-server-db
+      spring.data.mongodb.authentication-database: admin
+      spring.data.mongodb.auto-index-creation: "true"
+      spring.data.mongodb.username: root
+      spring.data.mongodb.password: example
+      spring.data.mongodb.port: 27017
+      spring.data.mongodb.database: fileserverdb
+    networks:
+      server_network:
+
+  data-client:
+    build: dataclient
+    image: v-file/dataclient:latest
+    restart: always
+    ports:
+      - "8080"
+
+    networks:
+      server_network:
+    deploy:
+      replicas: 5
+
+networks:
+  server_network:
+    driver: bridge
+
+volumes:
+  mongodbdatavolumeprod: {}
+  mongodblogvolumeprod: {}
+

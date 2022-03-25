@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "cd33cd73-c807-4402-9497-60d13a8a4036",
+		"name": "v-filesystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DataClientConnection",
+			"item": [
+				{
+					"name": "getAllDataClientConnection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/dataclientconnections",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dataclientconnections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDataClientConnection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/dataclientconnections",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dataclientconnections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDataClientConnection",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ipv4\": \"111.111.111\",\r\n    \"name\": \"data-client-1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/dataclientconnections",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dataclientconnections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDataClientConnection",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/dataclientconnections",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dataclientconnections"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Node",
+			"item": [
+				{
+					"name": "getAllNodes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/nodes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getNodeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/nodes/622f6529dcb00d5acebe4cda",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nodes",
+								"622f6529dcb00d5acebe4cda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getNodeByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/nodes/name/childA",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nodes",
+								"name",
+								"childA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postNodeInit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"root\",\r\n    \"childNodes\": [\r\n        {\r\n            \"name\": \"childA\",\r\n            \"childNodes\": []        \r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/nodes/init/111.111.111",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nodes",
+								"init",
+								"111.111.111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postNodeInit2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"root\",\r\n    \"childNodes\": [\r\n        {\r\n            \"name\": \"childA\",\r\n            \"childNodes\": [\r\n                {\r\n                    \"name\":\"childB1\",\r\n                    \"childNodes\": [\r\n                        {\r\n                            \"name\":\"childA11\",\r\n                            \"childNodes\": []\r\n                        },{\r\n                            \"name\":\"childA12\",\r\n                            \"childNodes\": []\r\n                        },{\r\n                            \"name\":\"childA13\",\r\n                            \"childNodes\": []\r\n                        },{\r\n                            \"name\":\"childA14\",\r\n                            \"childNodes\": []\r\n                        }\r\n                    ]\r\n                }, {\r\n                    \"name\":\"childA2\",\r\n                    \"childNodes\": [\r\n                        {\r\n                            \"name\":\"childA21\",\r\n                            \"childNodes\": []\r\n                        },{\r\n                            \"name\":\"childA22\",\r\n                            \"childNodes\": []\r\n                        },{\r\n                            \"name\":\"childA23\",\r\n                            \"childNodes\": []\r\n                        },{\r\n                            \"name\":\"childA24\",\r\n                            \"childNodes\": []\r\n                        }\r\n                    ]\r\n                }\r\n            ]        \r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/nodes/init/111.111.112",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nodes",
+								"init",
+								"111.111.112"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteNode",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"root\",\r\n    \"childNodes\": [\r\n        {\r\n            \"name\": \"childA\",\r\n            \"childNodes\": [\r\n                {\r\n                    \"name\":\"childA1\",\r\n                    \"childNodes\": []\r\n                }\r\n            ]        \r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/nodes/622f6e9c2faf5c0e2f850652",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nodes",
+								"622f6e9c2faf5c0e2f850652"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putNodeName",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/nodes/622f6df8d2d7633235a1e00a/newNodeName",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nodes",
+								"622f6df8d2d7633235a1e00a",
+								"newNodeName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postChildNode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test12\",\r\n    \"childNodes\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/nodes/622f6e9c2faf5c0e2f850652/child",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nodes",
+								"622f6e9c2faf5c0e2f850652",
+								"child"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
